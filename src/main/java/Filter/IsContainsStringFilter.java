@@ -4,17 +4,13 @@ public class IsContainsStringFilter implements Filter {
     private String pattern;
 
     public IsContainsStringFilter(String pattern) {
-        if (pattern == null) {
-            throw new IllegalArgumentException("Argument can`t be null");
-        }
+        if (pattern == null) throw new IllegalArgumentException("Argument can`t be null");
         this.pattern = pattern;
     }
 
     @Override
     public boolean apply(String str) {
-        if (str == null) {
-            throw new IllegalArgumentException("Argument can`t be null");
-        }
+        if (str == null) throw new IllegalArgumentException("Argument can`t be null");
         return str.contains(pattern);
     }
 }
