@@ -5,7 +5,7 @@ public class EndWithStringFilter implements Filter {
 
     public EndWithStringFilter(String pattern) {
         if (pattern == null) {
-            throw new IllegalArgumentException("EndFilter constructor: argument is null");
+            throw new IllegalArgumentException("Argument can`t be null");
         }
         this.pattern = pattern;
     }
@@ -13,7 +13,7 @@ public class EndWithStringFilter implements Filter {
     @Override
     public boolean apply(String str) {
         if (str == null) {
-            throw new IllegalArgumentException("EndFilter apply: argument is null");
+            throw new IllegalArgumentException("Argument can`t be null");
         }
         return str.endsWith(pattern);
     }
