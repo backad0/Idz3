@@ -1,10 +1,12 @@
+import java.util.Objects;
+
 public class ProductPackage {
     private String name;
     private double weight;
 
     public void setName(String name){
-        if (name == null) throw new IllegalArgumentException("Name can`t be null");
-        if (name.equals("")) throw new IllegalArgumentException("Name can`t be empty");
+        if (name == null) throw new IllegalArgumentException("Name of package can`t be null");
+        if (name.equals("")) throw new IllegalArgumentException("Name of package can`t be empty");
         this.name = name;
     }
 
@@ -26,14 +28,27 @@ public class ProductPackage {
         setWeight(weight);
     }
 
-    public int hashCode(){
-        int res = name.hashCode() + (int)weight;
+    /*public int hashCode(){
+        int res = name.hashCode() + weight.hashCode();
         return res;
     }
 
     public  boolean equals(ProductPackage productPackage){
         if (productPackage == null) throw new IllegalArgumentException("Element being compared must exist");
         return hashCode() == productPackage.hashCode();
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductPackage that = (ProductPackage) o;
+        return Double.compare(that.weight, weight) == 0 && name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, weight);
     }
 
     public String toString() {
