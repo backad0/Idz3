@@ -16,6 +16,7 @@ public class PackagedPieceProduct extends PackagedProduct{
     public PackagedPieceProduct(PieceProduct pieceProduct, int amount, ProductPackage productPackage){
         super(pieceProduct,productPackage);
         setAmount(amount);
+        this.pieceProduct=pieceProduct;
     }
 
     public double getNetWeight() {
